@@ -54,8 +54,21 @@ abstract class AbstractQuery
     }
 
     /**
-     * @param  string $key
-     * @return mixed
+     * Get all defined parameters.
+     *
+     * @return \Doctrine\Common\Collections\ArrayCollection The defined query parameters.
+     */
+    public function getParameters()
+    {
+        return $this->params;
+    }
+
+    /**
+     * Gets a query parameter.
+     *
+     * @param mixed $key The key (index or name) of the parameter.
+     *
+     * @return mixed The value of the parameter.
      */
     public function getParameter($key)
     {
@@ -63,6 +76,34 @@ abstract class AbstractQuery
             return $this->params[$key];
         }
         return null;
+    }
+
+    /**
+     * Sets a collection of query parameters.
+     *
+     * @param array $params
+     *
+     * @return \Doctrine\CouchDB\View\AbstractQuery This query instance.
+     */
+    public function setParameters($params)
+    {
+        $this->params = $params;
+
+        return $this;
+    }
+
+    /**
+     * Sets a query parameter.
+     *
+     * @param string|integer $key The parameter position or name.
+     * @param mixed $value The parameter value.
+     *
+     * @return \Doctrine\ORM\AbstractQuery This query instance.
+     */
+    public function setParameter($key, $value)
+    {
+        $this->params[$key] = $value;
+        return $this;
     }
 
     abstract protected function getHttpQuery();
