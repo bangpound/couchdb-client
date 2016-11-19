@@ -771,4 +771,20 @@ class CouchDBClient
         }
         return $response->body;
     }
+
+    /**
+     * Show cluster membership.
+     *
+     * @return array|mixed|string
+     * @throws \Doctrine\CouchDB\HTTP\HTTPException
+     */
+    public function membership()
+    {
+        $path = '/_membership';
+        $response = $this->httpClient->request('GET', $path);
+        if ($response->status >= 400) {
+            throw HTTPException::fromResponse($path, $response);
+        }
+        return $response->body;
+    }
 }
