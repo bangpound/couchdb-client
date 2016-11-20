@@ -18,7 +18,7 @@
 
     <testsuites>
         <testsuite name="Doctrine ODM CouchDB Test Suite">
-            <directory>./tests/Doctrine/Tests/CouchDB</directory>
+            <directory>./tests/CouchDB</directory>
         </testsuite>
     </testsuites>
 </phpunit>

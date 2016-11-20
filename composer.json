@@ -16,13 +16,13 @@
       "phpunit/phpunit": "~4.0"
     },
     "autoload": {
-        "psr-0": {
-            "Doctrine\\CouchDB": "lib/"
+        "psr-4": {
+            "Doctrine\\CouchDB\\": "lib/"
         }
     },
     "autoload-dev": {
-        "psr-0": {
-            "Doctrine\\Tests": "tests/"
+        "psr-4": {
+            "Doctrine\\Tests\\": "tests/"
         }
     },
     "extra": {
